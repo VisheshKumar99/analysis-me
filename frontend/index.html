@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>analysis-me</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>analysis-me</h1>
+      <p class="subtitle">Ask questions about your PDF using a local or cloud LLM.</p>
+
+      <section class="card">
+        <h2>1. Upload a PDF</h2>
+        <div class="row">
+          <input type="file" id="pdf-input" accept="application/pdf" />
+          <button id="upload-btn">Upload</button>
+        </div>
+        <p id="upload-status" class="status"></p>
+      </section>
+
+      <section class="card">
+        <h2>2. Ask a question</h2>
+        <label class="field">
+          <span>Provider (optional)</span>
+          <select id="provider">
+            <option value="">Default (.env)</option>
+            <option value="ollama">Ollama</option>
+            <option value="openai">OpenAI</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Grounded in uploaded file?</span>
+          <input type="checkbox" id="use-pdf" />
+        </label>
+        <textarea id="question" rows="3" placeholder="What is this document about?"></textarea>
+        <button id="ask-btn">Ask</button>
+        <div id="answer" class="answer"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
